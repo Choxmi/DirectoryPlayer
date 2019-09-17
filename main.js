@@ -13,7 +13,9 @@ function createWindow () {
     height: 600,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
-    }
+    },
+    fullscreen: true,
+    frame: false
   })
 
   // and load the index.html of the app.
@@ -21,6 +23,14 @@ function createWindow () {
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
+
+  const fs = require('fs')
+
+  const root = fs.readdirSync('./')
+  
+  // This will print all files at the root-level of the disk,
+  // either '/' or 'C:\'.
+  console.log(root)
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {

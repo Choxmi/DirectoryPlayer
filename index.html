@@ -1,16 +1,90 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" href="css/blueimp-gallery.min.css" />
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using Node.js <span id="node-version"></span>,
-    Chromium <span id="chrome-version"></span>,
-    and Electron <span id="electron-version"></span>.
+    <div class="ct" id="t1">
+      <div class="ct" id="t2">
+        <div class="ct" id="t3">
+          <div class="ct" id="t4">
+             <div class="ct" id="t5">
+              <ul id="menu">
+                <a href="#t1"><li class="icon fa fa-bolt" id="uno">Home</li></a>
+                <a href="#t2"><li class="icon fa fa-keyboard-o" id="dos">Lotto</li></a>
+                <a href="#t3"><li class="icon fa fa-rocket" id="tres">ToolBox</li></a>
+                <a href="#t4"><li class="icon fa fa-dribbble" id="cuatro">CTI & THA</li></a>
+                <a href="#t5"><li class="icon fa fa-plus-circle" id="cinco">Gallery</li></a>
+              </ul>
+              <div class="page" id="p1">
+                 <section class="icon fa fa-bolt"><img class="logo" src="./logo.png"/></section>  
+              </div>
+              <div class="page" id="p2">
+                <section class="icon fa fa-keyboard-o"><span class="title">Type</span></section>
+              </div>  
+              <div class="page" id="p3">
+                <section class="icon fa fa-rocket"><span class="title">Rocket</span></section>
+              </div>
+              <div class="page" id="p4">
+                <section class="icon fa fa-dribbble">
+                  <span class="title">Dribbble</span>
+                  <p class="hint">
+                    <a href="https://dribbble.com/albertohartzet" target="_blank">Im ready to play, <span class="hint line-trough">invite me </span> find me</a>
+                  </p>
+                  <p class="hint">Already invited by <a href="http://www.dribbble.com/mrpeters" target="_blank">Stan Peters</a></p>
+                </section>
+              </div> 
+              <div class="page" id="p5">
+                <section class="icon fa fa-plus-circle">
+                  <span class="title">Gallery</span>
+                  <div id="blueimp-gallery"  class="blueimp-gallery">
+                      <div class="slides"></div>
+                      <h3 class="title"></h3>
+                      <a class="prev">‹</a>
+                      <a class="next">›</a>
+                      <a class="close">×</a>
+                      <a class="play-pause"></a>
+                      <ol class="indicator"></ol>
+                    </div>
 
-    <!-- You can also require other files to run in this process -->
-    <script src="./renderer.js"></script>
+                    <div id="links">
+                        <a href="gallery/aquaman1.jpg" title="Aquaman">
+                          <img class="thumb" src="gallery/aquaman1.jpg" alt="Aquaman" />
+                        </a>
+                        <a href="gallery/ironman1.jpg" title="IronMan">
+                          <img class="thumb" src="gallery/ironman1.jpg" alt="IronMan" />
+                        </a>
+                        <a href="gallery/godzilla1.jpg" title="Godzilla">
+                          <img class="thumb" src="gallery/godzilla1.jpg" alt="Godzilla" />
+                        </a>
+                        <a href="gallery/godzilla2.jpg" title="Godzilla">
+                          <img class="thumb" src="gallery/godzilla2.jpg" alt="Godzilla" />
+                        </a>
+                      </div>
+
+                </section>
+              </div> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+    
+    <script src="js/blueimp-gallery.min.js"></script>
+
+    <script>
+        document.getElementById('links').onclick = function(event) {
+          event = event || window.event
+          var target = event.target || event.srcElement,
+            link = target.src ? target.parentNode : target,
+            options = { index: link, 
+                        event: event,
+                        fullScreen: false },
+            links = this.getElementsByTagName('a')
+          blueimp.Gallery(links, options)
+        }
+      </script> 
+
   </body>
 </html>
